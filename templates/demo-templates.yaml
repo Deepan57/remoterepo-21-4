@@ -1,0 +1,19 @@
+parameters:
+  - name: branch
+    displayName: branch
+    type: string
+    default: main
+
+steps: 
+  - script: |
+      sudo apt-get update
+      sudo apt-get install -y openjdk-8-jdk
+    displayName: javaInstall
+
+  - script: |  
+      sudo apt-get install -y maven
+    displayName: mavenInstall  
+
+  - script: |
+      mvn package
+    displayName: packaging 
